@@ -6,20 +6,20 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MiniDemo.Model
+namespace ProductService.Model
 {
-    public class EmployeeDbContext : DbContext
+    public class ProductDbContext : DbContext
     {
-        public EmployeeDbContext()
+        public ProductDbContext()
         {
 
         }
 
-        public EmployeeDbContext(DbContextOptions<EmployeeDbContext> options) : base(options)
+        public ProductDbContext(DbContextOptions<ProductDbContext> options) : base(options)
         {
         }
 
-        public DbSet<Employee> Employee { get; set; }
+        public DbSet<Product> Product { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -28,7 +28,7 @@ namespace MiniDemo.Model
                 .AddJsonFile("appsettings.json")
                 .Build();
 
-            var connectionString = configuration.GetConnectionString("AppDb");
+            var connectionString = System.Environment.GetEnvironmentVariable("CONNECTION_STRINGS");
             optionsBuilder.UseSqlServer(connectionString);
         }
     }

@@ -3,12 +3,12 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using MiniDemo.Model;
+using ProductService.Model;
 
-namespace MiniDemo.Migrations
+namespace ProductService.Migrations
 {
-    [DbContext(typeof(EmployeeDbContext))]
-    partial class EmployeeDbContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(ProductDbContext))]
+    partial class ProductDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
@@ -18,9 +18,9 @@ namespace MiniDemo.Migrations
                 .HasAnnotation("ProductVersion", "5.0.8")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("MiniDemo.Model.Employee", b =>
+            modelBuilder.Entity("ProductService.Model.Product", b =>
                 {
-                    b.Property<string>("EmployeeId")
+                    b.Property<string>("ProductId")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Citizenship")
@@ -29,9 +29,9 @@ namespace MiniDemo.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("EmployeeId");
+                    b.HasKey("ProductId");
 
-                    b.ToTable("Employee");
+                    b.ToTable("Product");
                 });
 #pragma warning restore 612, 618
         }
