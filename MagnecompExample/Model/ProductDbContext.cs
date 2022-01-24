@@ -12,7 +12,6 @@ namespace ProductService.Model
     {
         public ProductDbContext()
         {
-
         }
 
         public ProductDbContext(DbContextOptions<ProductDbContext> options) : base(options)
